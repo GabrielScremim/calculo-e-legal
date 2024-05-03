@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Interpolação Polinomial | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Bem vindos a minha primeira página no hexo!Nessa primeira aula de interpolação linear, fizemos um exercício na folha e depois tivemos que criar um codigo, para resolver o mesmo problema. O código que">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Interpolação Polinomial">
+<meta property="og:url" content="https://gabrielscremim.github.io/calculo-e-legal/2024/05/02/Interpolacao-Polinomial/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Bem vindos a minha primeira página no hexo!Nessa primeira aula de interpolação linear, fizemos um exercício na folha e depois tivemos que criar um codigo, para resolver o mesmo problema. O código que">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gabrielscremim.github.io/%5Cassets%5C20240430_221002.jpg">
+<meta property="article:published_time" content="2024-05-03T00:03:33.000Z">
+<meta property="article:modified_time" content="2024-05-03T21:56:52.835Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gabrielscremim.github.io/%5Cassets%5C20240430_221002.jpg">
+  
+    <link rel="alternate" href="/calculo-e-legal/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/calculo-e-legal/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/calculo-e-legal/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/calculo-e-legal/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/calculo-e-legal/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/calculo-e-legal/">Home</a>
+        
+          <a class="main-nav-link" href="/calculo-e-legal/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/calculo-e-legal/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gabrielscremim.github.io/calculo-e-legal"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Interpolacao-Polinomial" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/calculo-e-legal/2024/05/02/Interpolacao-Polinomial/" class="article-date">
+  <time class="dt-published" datetime="2024-05-03T00:03:33.000Z" itemprop="datePublished">2024-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Interpolação Polinomial
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Bem vindos a minha primeira página no hexo!<br>Nessa primeira aula de interpolação linear, fizemos um exercício na folha e depois tivemos que criar um codigo, para resolver o mesmo problema. O código que crei foi feito em python na plataforma replit. A seguir estarei disponibilizando o codigo e uma foto do exercício feito em aula</p>
+<h2 id="Codigo-em-python"><a href="#Codigo-em-python" class="headerlink" title="Código em python"></a>Código em python</h2><p>def interp_linear(x0, y0, x1, y1, x2, y2, x):<br>    # Calcula as inclinações das retas<br>  m1 &#x3D; (y1 - y0) &#x2F; (x1 - x0)<br>  m2 &#x3D; (y2 - y1) &#x2F; (x2 - x1)</p>
+<pre><code># Calcula os valores interpolados de y usando a equação da reta
+</code></pre>
+<p>  if x &gt;&#x3D; x1:  # Interpola entre x1 e x2<br>      y &#x3D; y1 + m2 * (x - x1)<br>  else:        # Interpola entre x0 e x1<br>      y &#x3D; y0 + m1 * (x - x0)<br>  return y</p>
+<pre><code># Dados da tabela
+</code></pre>
+<p>x0, y0 &#x3D; 0.1, 1.221<br>x1, y1 &#x3D; 0.6, 3.320<br>x2, y2 &#x3D; 0.8, 4.953<br>x &#x3D; 0.2</p>
+<pre><code># Calcula P(0.2) usando interpolação linear
+</code></pre>
+<p>resultado &#x3D; interp_linear(x0, y0, x1, y1, x2, y2, x)<br>print(“P(0.2) &#x3D;”, resultado)</p>
+<h2 id="Exercicio-resolvido-em-aula"><a href="#Exercicio-resolvido-em-aula" class="headerlink" title="Exercício resolvido em aula"></a>Exercício resolvido em aula</h2><p><img src="/%5Cassets%5C20240430_221002.jpg" alt="Minha Imagem"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gabrielscremim.github.io/calculo-e-legal/2024/05/02/Interpolacao-Polinomial/" data-id="clvr85mwu0000tkl73njiaw8a" data-title="Interpolação Polinomial" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/calculo-e-legal/2024/05/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/calculo-e-legal/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/calculo-e-legal/2024/05/02/Interpolacao-Polinomial/">Interpolação Polinomial</a>
+          </li>
+        
+          <li>
+            <a href="/calculo-e-legal/2024/05/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/calculo-e-legal/" class="mobile-nav-link">Home</a>
+  
+    <a href="/calculo-e-legal/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/calculo-e-legal/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/calculo-e-legal/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/calculo-e-legal/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
