@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Quadros das Diferenças Divididas | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Document              h2{             color: red;         }         input{             margin-top: 10px;         }            Cálculo Numérico                            Forma de Newt">
+  <meta name="description" content="Interpolação Polinomial - Método de Newton              h2{             color: red;         }         input{             margin-top: 10px;         }            Cálculo Numérico">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Quadros das Diferenças Divididas">
+<meta property="og:title" content="Hexo">
 <meta property="og:url" content="https://gabrielscremim.github.io/calculo-e-legal/2024/05/14/Quadros-das-Diferencas-Divididas/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Document              h2{             color: red;         }         input{             margin-top: 10px;         }            Cálculo Numérico                            Forma de Newt">
+<meta property="og:description" content="Interpolação Polinomial - Método de Newton              h2{             color: red;         }         input{             margin-top: 10px;         }            Cálculo Numérico">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-05-15T00:18:06.000Z">
-<meta property="article:modified_time" content="2024-05-15T00:29:47.155Z">
+<meta property="article:published_time" content="2024-05-15T00:18:06.044Z">
+<meta property="article:modified_time" content="2024-05-29T00:44:16.193Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -74,22 +74,12 @@
         <section id="main"><article id="post-Quadros-das-Diferencas-Divididas" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/calculo-e-legal/2024/05/14/Quadros-das-Diferencas-Divididas/" class="article-date">
-  <time class="dt-published" datetime="2024-05-15T00:18:06.000Z" itemprop="datePublished">2024-05-14</time>
+  <time class="dt-published" datetime="2024-05-15T00:18:06.044Z" itemprop="datePublished">2024-05-14</time>
 </a>
     
   </div>
   <div class="article-inner">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      Quadros das Diferenças Divididas
-    </h1>
-  
-
-      </header>
     
     <div class="e-content article-entry" itemprop="articleBody">
       
@@ -98,7 +88,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Interpolação Polinomial - Método de Newton</title>
     <style>
         h2{
             color: red;
@@ -110,25 +100,45 @@
 </head>
 <body>
     <h2>Cálculo Numérico</h2>
-
-    <form action="../php/quadrados.php" method="post">
-        <select name="metodo" id="metodo">
-            <option value="newton">Forma de Newton</option>
-            <option value=""></option>
-            <option value=""></option>
-        </select> <br>
-        <label for="v1">Valor 1: </label>
-        <input type="text" name="v1" id="v1"> <br>
-        <label for="v2">Valor 2: </label>
-        <input type="text" name="v2" id="v2">
+    <form action="calcular.php" method="post">
+        <label for="x0">x0: </label>
+        <input type="text" name="x[]" id="x0"> <br>
+        <label for="y0">y0: </label>
+        <input type="text" name="y[]" id="y0"> <br>
+        
+        <label for="x1">x1: </label>
+        <input type="text" name="x[]" id="x1"> <br>
+        <label for="y1">y1: </label>
+        <input type="text" name="y[]" id="y1"> <br>
+        
+        <label for="x2">x2: </label>
+        <input type="text" name="x[]" id="x2"> <br>
+        <label for="y2">y2: </label>
+        <input type="text" name="y[]" id="y2"> <br>
+        
+        <label for="x3">x3: </label>
+        <input type="text" name="x[]" id="x3"> <br>
+        <label for="y3">y3: </label>
+        <input type="text" name="y[]" id="y3"> <br>
+        
+        <label for="x4">x4: </label>
+        <input type="text" name="x[]" id="x4"> <br>
+        <label for="y4">y4: </label>
+        <input type="text" name="y[]" id="y4"> <br>
+        
+        <label for="interpolar">Ponto para interpolar: </label>
+        <input type="text" name="interpolar" id="interpolar"> <br>
+        
+        <input type="submit" value="Calcular">
     </form>
-
 </body>
 </html>
+
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gabrielscremim.github.io/calculo-e-legal/2024/05/14/Quadros-das-Diferencas-Divididas/" data-id="clw72rpbx0002z0l70dye1asb" data-title="Quadros das Diferenças Divididas" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://gabrielscremim.github.io/calculo-e-legal/2024/05/14/Quadros-das-Diferencas-Divididas/" data-id="clw72rpbx0002z0l70dye1asb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -137,6 +147,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/calculo-e-legal/2024/06/11/Lagrange/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/calculo-e-legal/2024/05/02/Interpolacao-Polinomial/" id="article-nav-older" class="article-nav-link-wrap">
@@ -166,7 +185,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/calculo-e-legal/archives/2024/05/">May 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/calculo-e-legal/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/calculo-e-legal/archives/2024/05/">May 2024</a></li></ul>
     </div>
   </div>
 
@@ -179,7 +198,11 @@
       <ul>
         
           <li>
-            <a href="/calculo-e-legal/2024/05/14/Quadros-das-Diferencas-Divididas/">Quadros das Diferenças Divididas</a>
+            <a href="/calculo-e-legal/2024/06/11/Lagrange/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/calculo-e-legal/2024/05/14/Quadros-das-Diferencas-Divididas/">(no title)</a>
           </li>
         
           <li>
