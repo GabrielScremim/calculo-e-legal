@@ -263,7 +263,7 @@
 </head>
 <body>
     <h2>Cálculo Numérico</h2>
-    <form action="calcular.php" method="post">
+    <form id="calculoForm">
         <label for="x0">x0: </label>
         <input type="text" name="x[]" id="x0"> <br>
         <label for="y0">y0: </label>
@@ -292,10 +292,70 @@
         <label for="interpolar">Ponto para interpolar: </label>
         <input type="text" name="interpolar" id="interpolar"> <br>
         
-        <input type="submit" value="Calcular">
+        <input type="button" value="Calcular" onclick="calcularInterpolacao()">
     </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcularDiferencasDivididas(x, y) {
+            const n = x.length;
+            const F = new Array(n).fill().map(() => new Array(n).fill(0));
+
+            // Inicializa as diferenças divididas de ordem 0
+            for (let i = 0; i < n; i++) {
+                F[i][0] = y[i];
+            }
+
+            // Calcula as diferenças divididas
+            for (let j = 1; j < n; j++) {
+                for (let i = 0; i < n - j; i++) {
+                    F[i][j] = (F[i + 1][j - 1] - F[i][j - 1]) / (x[i + j] - x[i]);
+                }
+            }
+
+            // Retorna as primeiras colunas das diferenças divididas
+            const coef = [];
+            for (let i = 0; i < n; i++) {
+                coef.push(F[0][i]);
+            }
+
+            return coef;
+        }
+
+        function interpolar(x, coef, ponto) {
+            const n = coef.length;
+            let resultado = coef[0];
+            let produto = 1;
+
+            for (let i = 1; i < n; i++) {
+                produto *= (ponto - x[i - 1]);
+                resultado += coef[i] * produto;
+            }
+
+            return resultado;
+        }
+
+        function calcularInterpolacao() {
+            const x = [];
+            const y = [];
+            const inputsX = document.querySelectorAll('input[name="x[]"]');
+            const inputsY = document.querySelectorAll('input[name="y[]"]');
+
+            inputsX.forEach(input => x.push(parseFloat(input.value)));
+            inputsY.forEach(input => y.push(parseFloat(input.value)));
+
+            const ponto = parseFloat(document.getElementById('interpolar').value);
+
+            const coef = calcularDiferencasDivididas(x, y);
+            const resultado = interpolar(x, coef, ponto);
+
+            document.getElementById('resultado').innerText = `O valor interpolado no ponto ${ponto} é: ${resultado}`;
+        }
+    </script>
 </body>
 </html>
+
 
 
       
@@ -363,57 +423,6 @@
 
 
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/calculo-e-legal/2024/05/02/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-05-03T00:00:17.553Z" itemprop="datePublished">2024-05-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/calculo-e-legal/2024/05/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://gabrielscremim.github.io/calculo-e-legal/2024/05/02/hello-world/" data-id="clvr85mx00001tkl7d50cahp9" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
@@ -454,10 +463,6 @@
         
           <li>
             <a href="/calculo-e-legal/2024/05/02/Interpolacao-Polinomial/">Interpolação Polinomial</a>
-          </li>
-        
-          <li>
-            <a href="/calculo-e-legal/2024/05/02/hello-world/">Hello World</a>
           </li>
         
       </ul>
