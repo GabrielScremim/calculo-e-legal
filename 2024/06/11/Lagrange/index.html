@@ -6,15 +6,15 @@
   
   <title>Lagrange | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Interpolação de Lagrange              .container {             background: #fff;             padding: 20px;             width: 300px;             text-align: center;             marg">
+  <meta name="description" content="Interpolação de Lagrange              .container {             background: black;             color: white;             padding: 20px;             width: 300px;             text-alig">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lagrange">
 <meta property="og:url" content="https://gabrielscremim.github.io/calculo-e-legal/2024/06/11/Lagrange/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Interpolação de Lagrange              .container {             background: #fff;             padding: 20px;             width: 300px;             text-align: center;             marg">
+<meta property="og:description" content="Interpolação de Lagrange              .container {             background: black;             color: white;             padding: 20px;             width: 300px;             text-alig">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-11T22:56:40.000Z">
-<meta property="article:modified_time" content="2024-06-21T22:21:57.375Z">
+<meta property="article:modified_time" content="2024-06-21T23:33:42.029Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -102,7 +102,8 @@
     <title>Interpolação de Lagrange</title>
     <style>
         .container {
-            background: #fff;
+            background: black;
+            color: white;
             padding: 20px;
             width: 300px;
             text-align: center;
@@ -141,11 +142,11 @@
         }
 
         .remove-point {
-            background-color: #dc3545;
+            background-color: #ff0000;
         }
 
         .remove-point:hover {
-            background-color: #c82333;
+            background-color: #004cff;
         }
 
         #result {
@@ -157,7 +158,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Interpolação de Lagrange</h1>
+        <h1>Método de interpolação de Lagrange</h1>
         <form id="points-form">
             <div id="points-inputs">
                 <div class="point" id="point0">
@@ -168,8 +169,8 @@
                     <button type="button" class="remove-point" onclick="removePoint(0)">Remover</button>
                 </div>
             </div>
-            <button type="button" id="add-point">Adicionar Ponto</button>
-            <button type="button" id="calculate">Calcular Polinômio</button>
+            <button type="button" id="add-point" class="remove-point">Adicionar Ponto</button>
+            <button type="button" id="calculate" class="remove-point">Calcular Polinômio</button>
         </form>
         <div>
             <label for="x-value">Calcular P(x) para x:</label>
@@ -299,7 +300,7 @@
     </a>
   
   
-    <a href="/calculo-e-legal/2024/05/28/segobinho/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/calculo-e-legal/2024/05/28/Newton/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Newton</div>
     </a>
@@ -339,11 +340,11 @@
       <ul>
         
           <li>
-            <a href="/calculo-e-legal/2024/06/21/hello-world/">Lista</a>
+            <a href="/calculo-e-legal/2024/06/21/lista/">Lista</a>
           </li>
         
           <li>
-            <a href="/calculo-e-legal/2024/06/17/Lista/">Lista Exercícios Slides</a>
+            <a href="/calculo-e-legal/2024/06/17/Lista-ex-slides/">Lista Exercícios Slides</a>
           </li>
         
           <li>
@@ -355,7 +356,7 @@
           </li>
         
           <li>
-            <a href="/calculo-e-legal/2024/05/28/segobinho/">Newton</a>
+            <a href="/calculo-e-legal/2024/05/28/Newton/">Newton</a>
           </li>
         
       </ul>
